@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+* Start server to expose port 3000 via TailScale: ```rails s -b 0.0.0.0 -p 3000``` 
