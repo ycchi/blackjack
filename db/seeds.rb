@@ -7,3 +7,29 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+SUITS = ["♠", "♥", "♦", "♣"]
+RANKS = {
+  "Ace" => 11,
+  "2" => 2,
+  "3" => 3,
+  "4" => 4,
+  "5" => 5,
+  "6" => 6,
+  "7" => 7,
+  "8" => 8,
+  "9" => 9,
+  "10" => 10,
+  "Jack" => 10,
+  "Queen" => 10,
+  "King" => 10
+}
+
+SUITS.each do |suit|
+  RANKS.each do |rank, value|
+    Card.find_or_create_by!(name: "#{rank} #{suit}") do |card|
+      card.value = value
+      card.used = false
+    end
+  end
+end
