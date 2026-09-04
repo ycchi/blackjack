@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "cards" do %>
+  <div class="table">
+    <%= render "hand", label: "Dealer", cards: @dealer_cards %>
+    <%= render "hand", label: "You", cards: @player_cards %>
+  </div>
+<% end %>

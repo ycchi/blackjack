@@ -10,7 +10,7 @@
 
 SUITS = ["♠", "♥", "♦", "♣"]
 RANKS = {
-  "Ace" => 11,
+  "A" => 11,
   "2" => 2,
   "3" => 3,
   "4" => 4,
@@ -20,14 +20,14 @@ RANKS = {
   "8" => 8,
   "9" => 9,
   "10" => 10,
-  "Jack" => 10,
-  "Queen" => 10,
-  "King" => 10
+  "J" => 10,
+  "Q" => 10,
+  "K" => 10
 }
 
 SUITS.each do |suit|
   RANKS.each do |rank, value|
-    Card.find_or_create_by!(name: "#{rank} #{suit}") do |card|
+    Card.find_or_create_by!(name: "#{rank}#{suit}") do |card|
       card.value = value
       card.used = false
     end

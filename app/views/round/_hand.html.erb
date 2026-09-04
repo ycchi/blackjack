@@ -1,0 +1,10 @@
+<section class="hand">
+  <h2 class="hand__label"><%= label %></h2>
+  <div class="hand__cards">
+    <% cards.each do |card| %>
+      <%# <div class="card <%= "card--red" if card.name.match?(/[♥♦]/) %>"> %>
+        <%= card.name %>
+      </div>
+    <% end %>
+  </div>
+</section>

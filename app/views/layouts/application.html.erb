@@ -24,6 +24,11 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <span class="navbar__brand">BlackJack</span>
+      <%= link_to "Start Game", round_path, class: "navbar__reset" %>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
