@@ -17,7 +17,21 @@ class RoundController < ApplicationController
   end
 
   def stand
+    service = Round::RoundService.new
     @player_cards = PlayerCard.includes(:card).map(&:card)
-    @dealer_cards = Round::RoundService.new.dealer_hand(reveal: true)
+    player_sum = service.values_sum(@player_cards)
+
+    dealer_result = service.dealer_play
+    @dealer_cards = dealer_result[:cards]
+
+    if dealer_result[:sum] > 21
+      @outcome = "Dealer Bust, You Win"
+    elsif dealer_result[:sum] < player_sum
+      @outcome = "You Win"
+    elsif dealer_result[:sum] == player_sum
+      @outcome = "Push"
+    else
+      @outcome = "Dealer Win"
+    end
   end
 end

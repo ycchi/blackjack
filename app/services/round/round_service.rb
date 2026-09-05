@@ -35,6 +35,19 @@ module Round
       end
     end
 
+    def dealer_play
+      cards = dealer_hand(reveal: true)
+      sum = values_sum(cards)
+
+      while sum < 17
+        result = hit(cards, DealerCard)
+        cards = result[:cards]
+        sum = result[:sum]
+      end
+
+      { cards: cards, sum: sum }
+    end
+
     # Store and replace dealer's hole card (face-down) with placeholder to be revealed after player's turn
     def face_down_hole_card
       placeholder = Card.new(name: "", value: 0)
