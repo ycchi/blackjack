@@ -30,5 +30,15 @@
     </nav>
 
     <%= yield %>
+
+    <% if controller_name == "round" %>
+      <footer class="footer">
+        <div class="footer__actions" id="footer_actions">
+          <%= button_to "Hit", round_hit_path, method: :post, class: "footer__button", disabled: @player_blackjack %>
+          <%= button_to "Stand", round_stand_path, method: :post, class: "footer__button" %>
+        </div>
+        <div class="footer__outcome" id="footer_outcome"></div>
+      </footer>
+    <% end %>
   </body>
 </html>

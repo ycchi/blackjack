@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   # get "cards", to: "cards#index"
   get "round", to: "round#index"
+  post "round/hit", to: "round#hit"
+  post "round/stand", to: "round#stand"
 end

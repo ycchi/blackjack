@@ -1,0 +1,8 @@
+<%= turbo_stream.update "cards" do %>
+  <%= render "table" %>
+<% end %>
+
+<% if @bust %>
+  <%= turbo_stream.update "footer_actions", "" %>
+  <%= turbo_stream.update "footer_outcome", "#{@sum} Bust!" %>
+<% end %>
