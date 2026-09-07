@@ -20,6 +20,10 @@ class RoundController < ApplicationController
     service = Round::RoundService.new
     @player_cards = PlayerCard.includes(:card).map(&:card)
     player_sum = service.values_sum(@player_cards)
+    if service.check_ace(@player_cards) && player_sum > 21
+      @player_cards = service.ace_to_1(@player_cards)
+      player_sum = service.values_sum(@player_cards)
+    end
 
     dealer_result = service.dealer_play
     @dealer_cards = dealer_result[:cards]

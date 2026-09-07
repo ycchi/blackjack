@@ -48,7 +48,7 @@ module Round
       { cards: cards, sum: sum }
     end
 
-    # Store and replace dealer's hole card (face-down) with placeholder to be revealed after player's turn
+    # Replace dealer's hole card (face-down) with placeholder to be revealed after player's turn
     def face_down_hole_card
       placeholder = Card.new(name: "", value: 0)
       @dealer_cards[1] = placeholder
