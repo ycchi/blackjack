@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+}
+
+.table {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.hand {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.5rem;
+  border: 1px solid #000;
+  padding: 1rem;
+}
+
+.hand__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+  gap: 0.5rem;
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 2 / 3;
+  border: 1px solid #000;
+  padding: 0.5rem;
+}
+
+.footer {
+  padding: 1rem;
+  border-top: 1px solid #000;
+}
+
+.footer__outcome {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid #000;
+  padding: 0.75rem;
+  min-height: 2rem;
+}
+
+.footer__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.footer__button {
+  border: 1px solid #000;
+  padding: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .footer__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hand__cards {
+    grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
+  }
+}
